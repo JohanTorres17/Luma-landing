@@ -13,18 +13,21 @@ export default function FAQ() {
     const [open, setOpen] = useState(null)
 
     return (
-        <section id="faq" style={{ padding: '96px 0', background: '#fff' }}>
+        <section id="faq" style={{
+            padding: '100px 0',
+            background: 'linear-gradient(180deg, #fff 0%, #F8FAFC 100%)',
+        }}>
             <div className="container">
-
                 <div className="row justify-content-center mb-5">
                     <div className="col-12 col-md-8 text-center">
-                        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: '#2563EB', display: 'block', marginBottom: 12 }}>
-                            FAQ
-                        </span>
-                        <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 600, color: '#0D1B2A', lineHeight: 1.1, marginBottom: 16 }}>
-                            Preguntas <em style={{ color: '#2563EB' }}>frecuentes</em>
+                        <div className="section-label">FAQ</div>
+                        <h2 className="section-title" style={{
+                            fontSize: 'clamp(2rem, 4vw, 3rem)',
+                            marginBottom: 16,
+                        }}>
+                            Preguntas <em>frecuentes</em>
                         </h2>
-                        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: '#6B7A8D', fontWeight: 300 }}>
+                        <p className="section-subtitle">
                             Resolvemos las dudas más comunes antes de que tengas que preguntar.
                         </p>
                     </div>
@@ -32,59 +35,70 @@ export default function FAQ() {
 
                 <div className="row justify-content-center">
                     <div className="col-12 col-lg-8">
-                        {faqs.map((faq, i) => (
-                            <div
-                                key={i}
-                                style={{
-                                    borderBottom: '1px solid #EEF2F7',
-                                    overflow: 'hidden',
-                                }}
-                            >
-                                <button
-                                    onClick={() => setOpen(open === i ? null : i)}
+                        {faqs.map((faq, i) => {
+                            const isOpen = open === i
+                            return (
+                                <div
+                                    key={i}
                                     style={{
-                                        width: '100%', background: 'none', border: 'none',
-                                        padding: '22px 0', cursor: 'pointer',
-                                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                                        gap: 16, textAlign: 'left',
+                                        marginBottom: 8,
+                                        borderRadius: '12px',
+                                        background: isOpen ? 'rgba(37,99,235,0.02)' : 'transparent',
+                                        border: `1px solid ${isOpen ? 'rgba(37,99,235,0.1)' : '#F1F5F9'}`,
+                                        overflow: 'hidden',
+                                        transition: 'all 0.3s ease',
                                     }}
                                 >
-                                    <span style={{
-                                        fontFamily: 'DM Sans, sans-serif',
-                                        fontSize: '0.95rem', fontWeight: 500,
-                                        color: open === i ? '#2563EB' : '#0D1B2A',
-                                        transition: 'color 0.2s',
-                                    }}>{faq.q}</span>
+                                    <button
+                                        onClick={() => setOpen(isOpen ? null : i)}
+                                        style={{
+                                            width: '100%', background: 'none', border: 'none',
+                                            padding: '22px 24px', cursor: 'pointer',
+                                            display: 'flex', justifyContent: 'space-between',
+                                            alignItems: 'center', gap: 16, textAlign: 'left',
+                                        }}
+                                    >
+                                        <span style={{
+                                            fontFamily: 'DM Sans, sans-serif',
+                                            fontSize: '0.95rem', fontWeight: 500,
+                                            color: isOpen ? '#2563EB' : '#0B1120',
+                                            transition: 'color 0.2s',
+                                        }}>{faq.q}</span>
+                                        <div style={{
+                                            width: 30, height: 30, borderRadius: '50%',
+                                            flexShrink: 0,
+                                            background: isOpen
+                                                ? 'linear-gradient(135deg, #2563EB, #6366F1)'
+                                                : '#F1F5F9',
+                                            display: 'flex', alignItems: 'center',
+                                            justifyContent: 'center',
+                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            transform: isOpen ? 'rotate(45deg)' : 'rotate(0)',
+                                        }}>
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                <line x1="6" y1="1" x2="6" y2="11" stroke={isOpen ? '#fff' : '#64748B'} strokeWidth="1.5" strokeLinecap="round" />
+                                                <line x1="1" y1="6" x2="11" y2="6" stroke={isOpen ? '#fff' : '#64748B'} strokeWidth="1.5" strokeLinecap="round" />
+                                            </svg>
+                                        </div>
+                                    </button>
                                     <div style={{
-                                        width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
-                                        border: `1.5px solid ${open === i ? '#2563EB' : '#DDE3EC'}`,
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        transition: 'all 0.2s',
-                                        transform: open === i ? 'rotate(45deg)' : 'rotate(0)',
+                                        maxHeight: isOpen ? 250 : 0,
+                                        overflow: 'hidden',
+                                        transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                                     }}>
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <line x1="6" y1="1" x2="6" y2="11" stroke={open === i ? '#2563EB' : '#6B7A8D'} strokeWidth="1.5" strokeLinecap="round" />
-                                            <line x1="1" y1="6" x2="11" y2="6" stroke={open === i ? '#2563EB' : '#6B7A8D'} strokeWidth="1.5" strokeLinecap="round" />
-                                        </svg>
+                                        <p style={{
+                                            fontFamily: 'DM Sans, sans-serif',
+                                            fontSize: '0.88rem', color: '#64748B',
+                                            lineHeight: 1.7, fontWeight: 300,
+                                            padding: '0 24px 22px',
+                                            margin: 0,
+                                        }}>{faq.a}</p>
                                     </div>
-                                </button>
-                                <div style={{
-                                    maxHeight: open === i ? 200 : 0,
-                                    overflow: 'hidden',
-                                    transition: 'max-height 0.35s ease',
-                                }}>
-                                    <p style={{
-                                        fontFamily: 'DM Sans, sans-serif',
-                                        fontSize: '0.88rem', color: '#6B7A8D',
-                                        lineHeight: 1.7, fontWeight: 300,
-                                        paddingBottom: 22, margin: 0,
-                                    }}>{faq.a}</p>
                                 </div>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
                 </div>
-
             </div>
         </section>
     )

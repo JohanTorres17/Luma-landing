@@ -11,7 +11,7 @@ import { PreFooter, Footer } from '../componentes/prefooterfooter.jsx'
 
 function App() {
   return (
-    <div>
+    <div className="luma-app">
       <Header />
       <Hero />
       <Beneficios />

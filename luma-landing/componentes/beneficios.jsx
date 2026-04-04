@@ -1,127 +1,129 @@
 import { useState } from 'react'
 
 const beneficios = [
-    { icon: '🎯', title: 'Diseño que convierte', desc: 'Cada decisión visual está pensada para guiar al usuario hacia la acción. No solo se ve bien — funciona.' },
-    { icon: '⚡', title: 'Velocidad de carga óptima', desc: 'Sitios con carga menor a 1 segundo. Google te premia, los usuarios se quedan.' },
-    { icon: '📱', title: 'Responsive perfecto', desc: 'Funciona impecable en móvil, tablet y desktop. Más del 70% de tu tráfico viene de celular.' },
-    { icon: '🔍', title: 'SEO desde el inicio', desc: 'Estructura semántica y optimización técnica incluida. Aparece donde tus clientes buscan.' },
-    { icon: '🔒', title: 'Seguro y confiable', desc: 'HTTPS, buenas prácticas de seguridad y hosting recomendado. Tu negocio protegido.' },
-    { icon: '🤝', title: 'Soporte post-lanzamiento', desc: '30 días de ajustes incluidos. No te dejamos solos después de entregar.' },
+    {
+        icon: '🎯', title: 'Diseño que convierte',
+        desc: 'Cada decisión visual está pensada para guiar al usuario hacia la acción. No solo se ve bien — funciona.',
+        gradient: 'linear-gradient(135deg, #2563EB, #6366F1)',
+    },
+    {
+        icon: '⚡', title: 'Velocidad óptima',
+        desc: 'Sitios con carga menor a 1 segundo. Google te premia, los usuarios se quedan.',
+        gradient: 'linear-gradient(135deg, #6366F1, #8B5CF6)',
+    },
+    {
+        icon: '📱', title: 'Responsive perfecto',
+        desc: 'Funciona impecable en móvil, tablet y desktop. Más del 70% de tu tráfico viene de celular.',
+        gradient: 'linear-gradient(135deg, #3B82F6, #2563EB)',
+    },
+    {
+        icon: '🔍', title: 'SEO desde el inicio',
+        desc: 'Estructura semántica y optimización técnica incluida. Aparece donde tus clientes buscan.',
+        gradient: 'linear-gradient(135deg, #2563EB, #3B82F6)',
+    },
+    {
+        icon: '🔒', title: 'Seguro y confiable',
+        desc: 'HTTPS, buenas prácticas de seguridad y hosting recomendado. Tu negocio protegido.',
+        gradient: 'linear-gradient(135deg, #6366F1, #2563EB)',
+    },
+    {
+        icon: '🤝', title: 'Soporte post-lanzamiento',
+        desc: '30 días de ajustes incluidos. No te dejamos solos después de entregar.',
+        gradient: 'linear-gradient(135deg, #8B5CF6, #6366F1)',
+    },
 ]
 
 export default function Beneficios() {
-    const [email, setEmail] = useState('')
-    const [sent, setSent] = useState(false)
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (email) setSent(true)
-    }
+    const [hovered, setHovered] = useState(null)
 
     return (
-        <section id="beneficios" style={{ padding: '96px 0', background: '#fff' }}>
-            <div className="container">
+        <section id="beneficios" style={{
+            padding: '100px 0',
+            background: '#fff',
+            position: 'relative',
+        }}>
+            {/* Subtle bg pattern */}
+            <div style={{
+                position: 'absolute', inset: 0, opacity: 0.3, pointerEvents: 'none',
+                backgroundImage: 'radial-gradient(circle at 1px 1px, #E2E8F0 1px, transparent 0)',
+                backgroundSize: '40px 40px',
+            }} />
 
+            <div className="container position-relative">
                 {/* Header */}
                 <div className="row justify-content-center mb-5">
                     <div className="col-12 col-md-8 text-center">
-                        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: '#2563EB', display: 'block', marginBottom: 12 }}>
-                            BENEFICIOS
-                        </span>
-                        <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 600, color: '#0D1B2A', marginBottom: 16, lineHeight: 1.1 }}>
-                            Todo lo que incluye<br /><em style={{ fontStyle: 'italic', color: '#2563EB' }}>cada proyecto</em>
+                        <div className="section-label">BENEFICIOS</div>
+                        <h2 className="section-title" style={{
+                            fontSize: 'clamp(2rem, 4vw, 3rem)',
+                            marginBottom: 16,
+                        }}>
+                            Todo lo que incluye<br /><em>cada proyecto</em>
                         </h2>
-                        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: '#6B7A8D', fontWeight: 300, lineHeight: 1.7 }}>
+                        <p className="section-subtitle">
                             No cobramos extras por lo que debería ser estándar. Esto viene incluido en todos nuestros proyectos.
                         </p>
                     </div>
                 </div>
 
-                {/* Grid beneficios — 3 columnas Bootstrap */}
-                <div className="row g-4 mb-5">
+                {/* Grid */}
+                <div className="row g-4">
                     {beneficios.map((b, i) => (
                         <div key={i} className="col-12 col-sm-6 col-lg-4">
                             <div
                                 style={{
-                                    padding: '32px 28px', borderRadius: 12,
-                                    border: '1px solid #EEF2F7',
-                                    background: '#FAFBFC',
+                                    padding: '36px 30px',
+                                    borderRadius: '16px',
+                                    border: `1px solid ${hovered === i ? 'rgba(37,99,235,0.2)' : '#F1F5F9'}`,
+                                    background: hovered === i
+                                        ? 'linear-gradient(165deg, rgba(37,99,235,0.03) 0%, rgba(99,102,241,0.02) 100%)'
+                                        : '#FAFBFD',
                                     height: '100%',
-                                    transition: 'border-color 0.2s, box-shadow 0.2s, transform 0.2s',
+                                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                                     cursor: 'default',
+                                    transform: hovered === i ? 'translateY(-6px)' : 'translateY(0)',
+                                    boxShadow: hovered === i
+                                        ? '0 16px 48px rgba(37,99,235,0.1)'
+                                        : '0 1px 3px rgba(0,0,0,0.02)',
+                                    position: 'relative',
+                                    overflow: 'hidden',
                                 }}
-                                onMouseEnter={e => {
-                                    e.currentTarget.style.borderColor = '#2563EB'
-                                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(37,99,235,0.08)'
-                                    e.currentTarget.style.transform = 'translateY(-4px)'
-                                }}
-                                onMouseLeave={e => {
-                                    e.currentTarget.style.borderColor = '#EEF2F7'
-                                    e.currentTarget.style.boxShadow = 'none'
-                                    e.currentTarget.style.transform = 'translateY(0)'
-                                }}
+                                onMouseEnter={() => setHovered(i)}
+                                onMouseLeave={() => setHovered(null)}
                             >
-                                <div style={{ fontSize: '1.8rem', marginBottom: 16 }}>{b.icon}</div>
-                                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', fontWeight: 600, color: '#0D1B2A', marginBottom: 8 }}>{b.title}</div>
-                                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: '#6B7A8D', lineHeight: 1.6, fontWeight: 300 }}>{b.desc}</div>
+                                {/* Accent line */}
+                                <div style={{
+                                    position: 'absolute', top: 0, left: 0, right: 0,
+                                    height: 3, background: b.gradient,
+                                    opacity: hovered === i ? 1 : 0,
+                                    transition: 'opacity 0.3s',
+                                }} />
+
+                                <div style={{
+                                    width: 52, height: 52, borderRadius: '14px',
+                                    background: hovered === i
+                                        ? 'linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(99,102,241,0.1) 100%)'
+                                        : '#F1F5F9',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    fontSize: '1.5rem', marginBottom: 20,
+                                    transition: 'all 0.3s',
+                                }}>
+                                    {b.icon}
+                                </div>
+                                <div style={{
+                                    fontFamily: 'Cormorant Garamond, serif',
+                                    fontSize: '1.2rem', fontWeight: 600,
+                                    color: '#0B1120', marginBottom: 10,
+                                }}>{b.title}</div>
+                                <div style={{
+                                    fontFamily: 'DM Sans, sans-serif',
+                                    fontSize: '0.85rem', color: '#64748B',
+                                    lineHeight: 1.65, fontWeight: 300,
+                                }}>{b.desc}</div>
                             </div>
                         </div>
                     ))}
                 </div>
-
-                {/* CTA dejar correo */}
-                <div className="row justify-content-center">
-                    <div className="col-12 col-md-8">
-                        <div style={{
-                            background: '#F5F7FA', borderRadius: 16,
-                            padding: '40px 48px', textAlign: 'center',
-                            border: '1px solid #EEF2F7',
-                        }}>
-                            <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 600, color: '#0D1B2A', marginBottom: 8 }}>
-                                ¿Quieres recibir casos de éxito y recursos gratuitos?
-                            </div>
-                            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: '#6B7A8D', marginBottom: 24, fontWeight: 300 }}>
-                                Deja tu correo y te enviamos ejemplos reales de proyectos y cómo logramos los resultados.
-                            </p>
-                            {!sent ? (
-                                <form onSubmit={handleSubmit} className="d-flex gap-2 justify-content-center flex-wrap">
-                                    <input
-                                        type="email"
-                                        placeholder="tu@correo.com"
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                        required
-                                        style={{
-                                            fontFamily: 'DM Sans, sans-serif',
-                                            padding: '12px 20px', borderRadius: '4px',
-                                            border: '1.5px solid #DDE3EC', fontSize: '0.9rem',
-                                            outline: 'none', flex: '1 1 240px', maxWidth: 320,
-                                        }}
-                                        onFocus={e => e.target.style.borderColor = '#2563EB'}
-                                        onBlur={e => e.target.style.borderColor = '#DDE3EC'}
-                                    />
-                                    <button
-                                        type="submit"
-                                        style={{
-                                            fontFamily: 'DM Sans, sans-serif',
-                                            fontWeight: 600, fontSize: '0.88rem',
-                                            padding: '12px 24px', borderRadius: '4px',
-                                            background: '#2563EB', color: '#fff',
-                                            border: 'none', cursor: 'pointer',
-                                        }}
-                                    >
-                                        Envíame los casos →
-                                    </button>
-                                </form>
-                            ) : (
-                                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: '#2563EB', fontWeight: 500 }}>
-                                    ✓ ¡Perfecto! Revisa tu correo pronto.
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
     )
