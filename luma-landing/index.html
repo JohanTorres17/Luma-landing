@@ -31,6 +31,15 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P53RW7XS" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Hidden form for Netlify Forms detection (required for React SPA) -->
+  <form name="propuesta" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="nombre" />
+    <input type="email" name="correo" />
+    <input type="tel" name="tel" />
+    <select name="servicio"><option value=""></option></select>
+  </form>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
