@@ -11,11 +11,42 @@ const servicios = [
 export default function Hero() {
     const [form, setForm] = useState({ nombre: '', correo: '', tel: '', servicio: '' })
     const [sent, setSent] = useState(false)
+    const [sending, setSending] = useState(false)
+    const [error, setError] = useState(null)
     const [focused, setFocused] = useState(null)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        if (form.correo && form.nombre) setSent(true)
+        if (!form.correo || !form.nombre) return
+
+        setSending(true)
+        setError(null)
+
+        try {
+            const body = new URLSearchParams({
+                'form-name': 'propuesta',
+                nombre: form.nombre,
+                correo: form.correo,
+                tel: form.tel,
+                servicio: form.servicio,
+            }).toString()
+
+            const res = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body,
+            })
+
+            if (res.ok) {
+                setSent(true)
+            } else {
+                setError('Hubo un error al enviar. Intenta de nuevo.')
+            }
+        } catch {
+            setError('Error de conexión. Verifica tu internet e intenta de nuevo.')
+        } finally {
+            setSending(false)
+        }
     }
 
     const inputStyle = (field) => ({
@@ -219,6 +250,8 @@ export default function Hero() {
                                     </p>
 
                                     <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
+                                        <input type="hidden" name="form-name" value="propuesta" />
+                                        <input type="hidden" name="bot-field" />
                                         <div>
                                             <label style={{
                                                 fontFamily: 'DM Sans, sans-serif',
@@ -304,31 +337,40 @@ export default function Hero() {
 
                                         <button
                                             type="submit"
+                                            disabled={sending}
                                             style={{
                                                 fontFamily: 'DM Sans, sans-serif',
                                                 fontWeight: 600, fontSize: '0.95rem',
                                                 padding: '15px', borderRadius: '8px',
-                                                background: 'linear-gradient(135deg, #2563EB 0%, #6366F1 100%)',
-                                                color: '#fff', border: 'none', cursor: 'pointer',
+                                                background: sending
+                                                    ? 'linear-gradient(135deg, #93B4F5 0%, #A5A7F5 100%)'
+                                                    : 'linear-gradient(135deg, #2563EB 0%, #6366F1 100%)',
+                                                color: '#fff', border: 'none',
+                                                cursor: sending ? 'not-allowed' : 'pointer',
                                                 marginTop: 4,
                                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                                 boxShadow: '0 8px 24px rgba(37,99,235,0.25)',
                                                 display: 'flex', alignItems: 'center',
                                                 justifyContent: 'center', gap: 8,
+                                                opacity: sending ? 0.8 : 1,
                                             }}
                                             onMouseEnter={e => {
-                                                e.target.style.transform = 'translateY(-2px)'
-                                                e.target.style.boxShadow = '0 12px 32px rgba(37,99,235,0.35)'
+                                                if (!sending) {
+                                                    e.target.style.transform = 'translateY(-2px)'
+                                                    e.target.style.boxShadow = '0 12px 32px rgba(37,99,235,0.35)'
+                                                }
                                             }}
                                             onMouseLeave={e => {
                                                 e.target.style.transform = 'translateY(0)'
                                                 e.target.style.boxShadow = '0 8px 24px rgba(37,99,235,0.25)'
                                             }}
                                         >
-                                            Solicitar propuesta gratuita
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
+                                            {sending ? 'Enviando...' : 'Solicitar propuesta gratuita'}
+                                            {!sending && (
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                </svg>
+                                            )}
                                         </button>
 
                                         <p style={{
@@ -343,6 +385,20 @@ export default function Hero() {
                                             </svg>
                                             Sin compromiso · Respondemos en menos de 24h
                                         </p>
+
+                                        {error && (
+                                            <p style={{
+                                                fontFamily: 'DM Sans, sans-serif',
+                                                fontSize: '0.82rem', color: '#DC2626',
+                                                textAlign: 'center', margin: '8px 0 0',
+                                                padding: '10px 14px',
+                                                background: 'rgba(220,38,38,0.06)',
+                                                borderRadius: '8px',
+                                                border: '1px solid rgba(220,38,38,0.12)',
+                                            }}>
+                                                {error}
+                                            </p>
+                                        )}
                                     </form>
                                 </>
                             ) : (
