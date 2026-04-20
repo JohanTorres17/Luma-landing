@@ -50,7 +50,18 @@ export default function FAQ() {
                                     }}
                                 >
                                     <button
-                                        onClick={() => setOpen(isOpen ? null : i)}
+                                        onClick={() => {
+                                            const nowOpen = isOpen ? null : i
+                                            setOpen(nowOpen)
+                                            if (nowOpen !== null) {
+                                                window.dataLayer = window.dataLayer || []
+                                                window.dataLayer.push({
+                                                    event: 'faq_interaction',
+                                                    faq_question: faq.q,
+                                                    faq_index: i + 1,
+                                                })
+                                            }
+                                        }}
                                         style={{
                                             width: '100%', background: 'none', border: 'none',
                                             padding: '22px 24px', cursor: 'pointer',
