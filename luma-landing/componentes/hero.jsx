@@ -37,6 +37,28 @@ export default function Hero() {
                 body,
             })
 
+            // HubSpot API Integration
+            try {
+                await fetch('https://api.hsforms.com/submissions/v3/integration/submit/51366473/8aca2c5d-7cca-474b-a16b-1e6ac404b284', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fields: [
+                            { name: 'firstname', value: form.nombre },
+                            { name: 'email', value: form.correo },
+                            { name: 'phone', value: form.tel },
+                            { name: 'servicio', value: form.servicio }
+                        ],
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: document.title
+                        }
+                    })
+                })
+            } catch (err) {
+                console.error('HubSpot error:', err)
+            }
+
             if (res.ok) {
                 setSent(true)
                 // GTM: evento de conversión principal
