@@ -42,7 +42,7 @@ export default function Hero() {
                 // GTM: evento de conversión principal
                 window.dataLayer = window.dataLayer || []
                 window.dataLayer.push({
-                    event: 'form_submit',
+                    event: 'luma_form_submit',
                     form_name: 'propuesta',
                     servicio: form.servicio || 'no_seleccionado',
                 })
