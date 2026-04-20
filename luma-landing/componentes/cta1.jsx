@@ -102,6 +102,10 @@ export default function CTA1() {
                         <a
                             href="#registro"
                             className="btn-primary"
+                            onClick={() => {
+                                window.dataLayer = window.dataLayer || []
+                                window.dataLayer.push({ event: 'cta_click', cta_location: 'cta_medio' })
+                            }}
                             style={{
                                 fontSize: '1rem', padding: '18px 40px',
                                 borderRadius: '10px', display: 'inline-flex',

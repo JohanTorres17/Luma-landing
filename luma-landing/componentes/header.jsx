@@ -81,6 +81,10 @@ export default function Header() {
                         <a
                             href="#registro"
                             className="btn-primary"
+                            onClick={() => {
+                                window.dataLayer = window.dataLayer || []
+                                window.dataLayer.push({ event: 'cta_click', cta_location: 'header' })
+                            }}
                             style={{
                                 fontSize: '0.82rem', padding: '10px 22px',
                                 animation: 'fadeInDown 0.5s ease 0.5s both',
@@ -145,7 +149,11 @@ export default function Header() {
                         <a
                             href="#registro"
                             className="btn-primary"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => {
+                                setMenuOpen(false)
+                                window.dataLayer = window.dataLayer || []
+                                window.dataLayer.push({ event: 'cta_click', cta_location: 'header_mobile' })
+                            }}
                             style={{ textAlign: 'center', justifyContent: 'center', marginTop: 4 }}
                         >
                             Empieza ahora

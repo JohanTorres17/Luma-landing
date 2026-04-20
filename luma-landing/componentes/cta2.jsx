@@ -42,6 +42,10 @@ export default function CTA2() {
                         <a
                             href="#registro"
                             className="btn-primary"
+                            onClick={() => {
+                                window.dataLayer = window.dataLayer || []
+                                window.dataLayer.push({ event: 'cta_click', cta_location: 'cta_final' })
+                            }}
                             style={{
                                 fontSize: '0.95rem', padding: '16px 36px',
                                 borderRadius: '10px',
