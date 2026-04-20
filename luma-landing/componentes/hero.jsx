@@ -39,6 +39,13 @@ export default function Hero() {
 
             if (res.ok) {
                 setSent(true)
+                // GTM: evento de conversión principal
+                window.dataLayer = window.dataLayer || []
+                window.dataLayer.push({
+                    event: 'form_submit',
+                    form_name: 'propuesta',
+                    servicio: form.servicio || 'no_seleccionado',
+                })
             } else {
                 setError('Hubo un error al enviar. Intenta de nuevo.')
             }
