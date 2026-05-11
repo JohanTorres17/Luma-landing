@@ -1,88 +1,48 @@
-import { useState } from 'react'
-
 export default function FormularioPropuesta({ id }) {
-  const [status, setStatus] = useState('')
-  const [submitting, setSubmitting] = useState(false)
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    const form = e.target
-    const data = new FormData(form)
-    setSubmitting(true)
-    setStatus('')
-    try {
-      const res = await fetch('/', { method: 'POST', body: data })
-      if (res.ok) {
-        setStatus('success')
-        form.reset()
-      } else setStatus('error')
-    } catch (err) {
-      setStatus('error')
-    } finally {
-      setSubmitting(false)
-    }
-  }
-
   return (
-    <div id={id} style={{ maxWidth: 520, margin: '28px auto 0', textAlign: 'center' }}>
+    <div id={id} style={{ maxWidth: 540, margin: '28px auto 0', textAlign: 'center' }}>
       <style>{`
-        .fp-card { display:grid; gap:12px; background:#fff; padding:22px; border-radius:14px; box-shadow:0 12px 40px rgba(2,6,23,0.28); }
-        .fp-label { font-size:14px; font-weight:700; color:#0b1120; }
-        .fp-input { padding:14px 14px 14px 44px; border-radius:10px; border:1px solid #eef2ff; font-size:15px; width:100%; box-sizing:border-box; }
-        .fp-input:focus { outline:none; box-shadow:0 0 0 4px rgba(124,92,255,0.12); border-color: #7c5cff; }
-        .fp-row { display:flex; gap:12px; align-items:center; justify-content:center }
-        .fp-btn { padding:12px 20px; border-radius:12px; background:linear-gradient(90deg,#7c5cff,#5b8bff); color:#fff; border:none; cursor:pointer; font-weight:700; box-shadow:0 8px 24px rgba(124,92,255,0.18); transition:transform .14s ease, box-shadow .14s ease }
-        .fp-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none }
-        .fp-btn:hover:not(:disabled){ transform:translateY(-2px) }
-        .fp-note { font-size:13px; color:#475569 }
-        .fp-icon { position:relative; left:10px; top:6px; width:20px; height:20px; opacity:0.9 }
-        .fp-success { padding:12px; border-radius:10px; background:#e6ffef; color:#02502a }
-        .fp-error { padding:12px; border-radius:10px; background:#ffe6e6; color:#7a1f1f }
+        .fp-shell { display:grid; gap:14px; background:#fff; padding:24px; border-radius:16px; border:1px solid #C0CCD9; box-shadow:0 16px 48px rgba(2,6,23,0.22); }
+        .fp-label { font-size:16px; font-weight:700; color:#3c4858; text-align:left; font-family:Helvetica, sans-serif; }
+        .fp-spec { font-size:12px; color:#8390A4; text-align:left; font-family:Helvetica, sans-serif; }
+        .fp-inputWrap { position:relative; }
+        .fp-input { width:100%; box-sizing:border-box; padding:14px 14px 14px 44px; border:1px solid #C0CCD9; border-radius:10px; font-size:16px; font-family:Helvetica, sans-serif; color:#0f172a; }
+        .fp-input::placeholder { color:#c0ccda; }
+        .fp-input:focus { outline:none; border-color:#042c6b; box-shadow:0 0 0 4px rgba(4,44,107,0.12); }
+        .fp-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:20px; height:20px; pointer-events:none; }
+        .fp-btn { width:100%; padding:14px 20px; border-radius:10px; background:#042c6b; color:#fff; border:none; cursor:pointer; font-size:16px; font-weight:700; font-family:Futura, sans-serif; box-shadow:0 10px 22px rgba(4,44,107,0.2); transition:transform .14s ease, box-shadow .14s ease, opacity .14s ease; }
+        .fp-btn:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 14px 28px rgba(4,44,107,0.26); }
+        .fp-btn:disabled { opacity:0.65; cursor:not-allowed; transform:none; }
+        .fp-note { font-size:13px; color:#6b7280; text-align:left; font-family:Helvetica, sans-serif; }
       `}</style>
 
       <form
-        name="propuesta"
+        id="sib-form"
+        className="fp-shell"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-        className="fp-card"
-        aria-label="Formulario de propuesta"
+        action="https://a8ece538.sibforms.com/serve/MUIFAOaOYBPo2kho53nICMKbCjU0LrdKnjC6qgJdZJ0J-bxNHAcYXG4E1fq9e0lv_5wSu0YpYAtptHqP3CsyowCuPNxZWPObo1NOLJO2Vrfk8jt4lmQY__w0JrAPmKxiPV-yd38UGTOpBStnnuhrDzYgoO1KPJW1m-_Q7gRSvoiYxwhHJhUUn5N0TAqDmh92yyjsiNlYEugSIIcgrw=="
+        data-type="subscription"
+        aria-label="Formulario de suscripción"
       >
-        <input type="hidden" name="form-name" value="propuesta" />
-        <div style={{ display: 'none' }}>
-          <label>
-            Si eres humano, deja esto vacío: <input name="bot-field" />
-          </label>
-        </div>
-
         <div style={{ textAlign: 'left' }}>
-          <div className="fp-label">Déjanos tu email</div>
-          <div style={{ fontSize: 13, color: '#6b7280', marginTop: 6 }}>Recibirás una respuesta personalizada en menos de 48 horas.</div>
+          <div className="fp-label">Introduce tu dirección de e-mail para suscribirte</div>
+          <div className="fp-spec" style={{ marginTop: 8 }}>Introduce tu dirección de e-mail para suscribirte. Ej.: abc@xyz.com</div>
         </div>
 
-        <div style={{ position: 'relative' }}>
-          <svg className="fp-icon" viewBox="0 0 24 24" fill="none" style={{ position: 'absolute', left: 12, top: 12 }} aria-hidden>
+        <div className="fp-inputWrap">
+          <svg className="fp-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3 6.5v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-11" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M3 6.5l9 6 9-6" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <input name="correo" type="email" placeholder="tu@ejemplo.com" required className="fp-input" />
+          <input id="EMAIL" name="EMAIL" type="email" autoComplete="email" placeholder="EMAIL" required className="fp-input" />
         </div>
 
-        <div className="fp-row">
-          <button type="submit" className="fp-btn" disabled={submitting} aria-disabled={submitting}>
-            {submitting ? 'Enviando...' : 'Obtener propuesta'}
-          </button>
-        </div>
+        <button type="submit" className="fp-btn">SUSCRIBIRSE</button>
 
-        {status === 'success' && (
-          <div role="status" className="fp-success">¡Gracias! Te contactaremos pronto.</div>
-        )}
-        {status === 'error' && (
-          <div role="alert" className="fp-error">Ocurrió un error al enviar. Intenta de nuevo.</div>
-        )}
+        <input type="text" name="email_address_check" value="" className="input--hidden" aria-hidden="true" tabIndex={-1} readOnly />
+        <input type="hidden" name="locale" value="es" />
 
-        <div style={{ textAlign: 'left', marginTop: 6 }} className="fp-note">Protegemos tu información. No compartimos tus datos.</div>
+        <div className="fp-note">Protegemos tu información. No compartimos tus datos.</div>
       </form>
     </div>
   )
