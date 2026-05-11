@@ -1,3 +1,4 @@
+
 export default function CTA1() {
     return (
         <section
@@ -123,6 +124,8 @@ export default function CTA1() {
                         }}>
                             Tu información está segura. No compartimos tus datos.
                         </p>
+
+                        {/* formulario movido al prefooter */}
                     </div>
                 </div>
             </div>

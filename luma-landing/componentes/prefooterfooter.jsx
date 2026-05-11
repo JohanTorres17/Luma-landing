@@ -14,6 +14,8 @@ const LogoMark = ({ size = 24 }) => (
     </svg>
 )
 
+import FormularioPropuesta from './formularioPropuesta.jsx'
+
 export function PreFooter() {
     return (
         <section style={{
@@ -99,6 +101,14 @@ export function PreFooter() {
                         }}>
                             Sin compromiso. Respondemos en menos de 24 horas.
                         </p>
+                    </div>
+                </div>
+                {/* Formulario en sección inferior: solo email */}
+                <div className="row justify-content-center mt-4">
+                    <div className="col-12 col-lg-8">
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <FormularioPropuesta id="registro" />
+                        </div>
                     </div>
                 </div>
             </div>
