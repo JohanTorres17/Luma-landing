@@ -61,7 +61,7 @@ export default function Beneficios() {
                             Todo lo que incluye<br /><em>cada proyecto</em>
                         </h2>
                         <p className="section-subtitle">
-                            No cobramos extras por lo que debería ser estándar. Esto viene incluido en todos nuestros proyectos.
+                            Cada proyecto de diseño web en Colombia que entregamos incluye por defecto estrategia, maquetación y optimización técnica. No cobramos extras por lo que debería ser estándar.
                         </p>
                     </div>
                 </div>

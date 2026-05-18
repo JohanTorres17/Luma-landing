@@ -2,6 +2,7 @@ const testimonios = [
     {
         nombre: 'María Fernanda Torres',
         cargo: 'Fundadora · EcoVerde',
+        empresaUrl: null, // TODO: URL real si existe
         texto: 'LUMA transformó nuestra presencia online. En el primer mes después del lanzamiento triplicamos las consultas de clientes. El diseño es exactamente lo que necesitábamos: elegante pero que convierte.',
         rating: 5,
         inicial: 'M',
@@ -10,6 +11,7 @@ const testimonios = [
     {
         nombre: 'Andrés Camilo Reyes',
         cargo: 'CEO · TechStart Medellín',
+        empresaUrl: null, // TODO: URL real si existe
         texto: 'Lo que más valoro es que LUMA entiende el negocio antes de escribir una línea de código. La landing page que hicieron para nuestra app logró un 40% de conversión en la lista de espera.',
         rating: 5,
         inicial: 'A',
@@ -18,6 +20,7 @@ const testimonios = [
     {
         nombre: 'Valentina Moreno',
         cargo: 'Directora · Clínica Estética VM',
+        empresaUrl: null, // TODO: URL real si existe
         texto: 'Entregaron en exactamente 7 días como prometieron. El sitio es rápido, se ve increíble en celular y el formulario de citas ha reducido las llamadas administrativas un 60%.',
         rating: 5,
         inicial: 'V',
@@ -26,6 +29,7 @@ const testimonios = [
     {
         nombre: 'Carlos Betancur',
         cargo: 'Gerente · Inmobiliaria Betancur',
+        empresaUrl: null, // TODO: URL real si existe
         texto: 'Varios estudios me habían prometido lo mismo. LUMA fue el único que cumplió. El sitio web de propiedades carga en menos de 1 segundo y Google nos tiene en primera página.',
         rating: 5,
         inicial: 'C',
@@ -124,10 +128,25 @@ export default function Testimonios() {
                                         boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                                     }}>{t.inicial}</div>
                                     <div>
-                                        <h3 style={{
-                                            fontFamily: 'DM Sans, sans-serif',
-                                            fontSize: '0.88rem', fontWeight: 600, color: '#0B1120',
-                                        }}>{t.nombre}</h3>
+                                        {t.empresaUrl ? (
+                                            <a
+                                                href={t.empresaUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style={{
+                                                    fontFamily: 'DM Sans, sans-serif',
+                                                    fontSize: '0.88rem', fontWeight: 600, color: '#0B1120',
+                                                    textDecoration: 'none',
+                                                }}
+                                            >
+                                                {t.nombre}
+                                            </a>
+                                        ) : (
+                                            <h3 style={{
+                                                fontFamily: 'DM Sans, sans-serif',
+                                                fontSize: '0.88rem', fontWeight: 600, color: '#0B1120',
+                                            }}>{t.nombre}</h3>
+                                        )}
                                         <div style={{
                                             fontFamily: 'DM Sans, sans-serif',
                                             fontSize: '0.75rem', color: '#64748B', fontWeight: 300,

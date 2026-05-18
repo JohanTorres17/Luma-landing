@@ -237,15 +237,18 @@ export function Footer() {
                 {/* Bottom */}
                 <div className="d-flex align-items-center justify-content-between flex-wrap gap-3 pt-4"
                     style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-                    <div style={{
+                    <p style={{
                         fontFamily: 'DM Sans, sans-serif',
                         fontSize: '0.72rem', color: 'rgba(255,255,255,0.15)',
+                        margin: 0,
                     }}>
-                        © 2025 LUMA Digital Studio. Todos los derechos reservados.
-                    </div>
+                        © 2025 LUMA Digital Studio S.A.S. — NIT: {/* TODO: insertar NIT */} — Bogotá, Colombia
+                    </p>
                     <div className="d-flex gap-4">
                         {[
+                            // TODO: crear página /privacidad conforme a Ley 1581 Colombia
                             { label: 'Política de Privacidad', href: '#inicio' },
+                            // TODO: crear página /terminos conforme a Ley 1581 Colombia
                             { label: 'Términos de Uso', href: '#inicio' },
                             { label: 'Contacto', href: '#registro' },
                         ].map(l => (

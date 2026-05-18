@@ -59,7 +59,7 @@ export default function Explicacion() {
                             De tu idea a tu sitio<br /><em>en 4 pasos simples</em>
                         </h2>
                         <p className="section-subtitle">
-                            Un proceso claro y transparente donde tú siempre sabes en qué etapa está tu proyecto.
+                            Un proceso claro y transparente para diseño web en Colombia, donde tú siempre sabes en qué etapa está tu proyecto.
                         </p>
                     </div>
                 </div>

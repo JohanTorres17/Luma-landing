@@ -3,7 +3,9 @@ import Hero from '../componentes/hero.jsx'
 import Beneficios from '../componentes/beneficios.jsx'
 import CTA1 from '../componentes/cta1.jsx'
 import Explicacion from '../componentes/explicacion.jsx'
+import Portafolio from '../componentes/portafolio.jsx'
 import Testimonios from '../componentes/testimonios.jsx'
+import Equipo from '../componentes/equipo.jsx'
 import FAQ from '../componentes/faq.jsx'
 import CTA2 from '../componentes/cta2.jsx'
 
@@ -17,7 +19,9 @@ function App() {
       <Beneficios />
       <CTA1 />
       <Explicacion />
+      <Portafolio />
       <Testimonios />
+      <Equipo />
       <FAQ />
       <CTA2 />
       <PreFooter />

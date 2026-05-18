@@ -2,3 +2,9 @@
   base = "luma-landing"
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "https://www.luma.studio/*"
+  to = "https://luma.studio/:splat"
+  status = 301
+  force = true

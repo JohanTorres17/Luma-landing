@@ -69,12 +69,12 @@ export default function FAQ() {
                                             alignItems: 'center', gap: 16, textAlign: 'left',
                                         }}
                                     >
-                                        <span style={{
+                                        <h3 style={{
                                             fontFamily: 'DM Sans, sans-serif',
                                             fontSize: '0.95rem', fontWeight: 500,
                                             color: isOpen ? '#2563EB' : '#0B1120',
                                             transition: 'color 0.2s',
-                                        }}>{faq.q}</span>
+                                        }}>{faq.q}</h3>
                                         <div style={{
                                             width: 30, height: 30, borderRadius: '50%',
                                             flexShrink: 0,

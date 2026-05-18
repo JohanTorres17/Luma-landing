@@ -180,13 +180,8 @@ export default function Hero() {
                             marginBottom: '22px',
                             animation: 'fadeInUp 0.8s ease 0.1s both',
                         }}>
-                            Diseño y desarrollo web en Colombia<br />
-                            <span style={{
-                                fontStyle: 'italic',
-                                background: 'var(--gradient-blue)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                            }}>para convertir más visitas en clientes.</span>
+                            Agencia de diseño y desarrollo web en Colombia
+                            <span> para convertir más visitas en clientes.</span>
                         </h1>
 
                         <p style={{
