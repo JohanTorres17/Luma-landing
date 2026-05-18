@@ -124,10 +124,10 @@ export default function Testimonios() {
                                         boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                                     }}>{t.inicial}</div>
                                     <div>
-                                        <div style={{
+                                        <h3 style={{
                                             fontFamily: 'DM Sans, sans-serif',
                                             fontSize: '0.88rem', fontWeight: 600, color: '#0B1120',
-                                        }}>{t.nombre}</div>
+                                        }}>{t.nombre}</h3>
                                         <div style={{
                                             fontFamily: 'DM Sans, sans-serif',
                                             fontSize: '0.75rem', color: '#64748B', fontWeight: 300,

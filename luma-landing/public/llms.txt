@@ -1,0 +1,34 @@
+# LUMA
+
+Estudio digital en Colombia especializado en sitios web, landing pages y aplicaciones web orientadas a conversión.
+
+## Qué ofrece
+
+- Diseño y desarrollo de sitios web.
+- Landing pages para captación de leads.
+- Aplicaciones web y dashboards.
+- Optimización SEO técnica y de contenido.
+- Soporte post-lanzamiento.
+
+## Público
+
+- Emprendedores.
+- Negocios que venden servicios.
+- Equipos de producto y marketing.
+- Clientes en Colombia, Latinoamérica, España y Estados Unidos.
+
+## Contacto
+
+- Email: hola@luma.studio
+- WhatsApp: +57 300 000 0000
+- Ubicación: Bogotá, Colombia
+
+## Página principal
+
+- https://luma.studio/
+
+## Notas de rastreo
+
+- Contenido principal en una sola landing.
+- FAQ estructurada disponible en el markup.
+- Marca: LUMA.

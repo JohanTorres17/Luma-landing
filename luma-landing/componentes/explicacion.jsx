@@ -116,11 +116,11 @@ export default function Explicacion() {
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                                         fontSize: '1.5rem', marginBottom: 18,
                                     }}>{p.icon}</div>
-                                    <div style={{
+                                    <h3 style={{
                                         fontFamily: 'Cormorant Garamond, serif',
                                         fontSize: '1.15rem', fontWeight: 600,
                                         color: '#0B1120', marginBottom: 10,
-                                    }}>{p.title}</div>
+                                    }}>{p.title}</h3>
                                     <div style={{
                                         fontFamily: 'DM Sans, sans-serif',
                                         fontSize: '0.83rem', color: '#64748B',
@@ -169,11 +169,11 @@ export default function Explicacion() {
                                     transition: 'opacity 0.3s',
                                 }} />
 
-                                <div style={{
+                                <h3 style={{
                                     fontFamily: 'Cormorant Garamond, serif',
                                     fontSize: '1.3rem', fontWeight: 600,
                                     color: '#0B1120', marginBottom: 6,
-                                }}>{s.name}</div>
+                                }}>{s.name}</h3>
                                 <div style={{
                                     fontFamily: 'DM Sans, sans-serif',
                                     fontSize: '0.83rem', color: '#64748B',

@@ -110,11 +110,11 @@ export default function Beneficios() {
                                 }}>
                                     {b.icon}
                                 </div>
-                                <div style={{
+                                <h3 style={{
                                     fontFamily: 'Cormorant Garamond, serif',
                                     fontSize: '1.2rem', fontWeight: 600,
                                     color: '#0B1120', marginBottom: 10,
-                                }}>{b.title}</div>
+                                }}>{b.title}</h3>
                                 <div style={{
                                     fontFamily: 'DM Sans, sans-serif',
                                     fontSize: '0.85rem', color: '#64748B',
