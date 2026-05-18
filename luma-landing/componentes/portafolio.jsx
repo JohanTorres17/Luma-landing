@@ -3,7 +3,7 @@ const proyectos = [
         nombre: 'Evolet 96',
         tipo: 'E-commerce',
         url: 'https://evolet96.com',
-        imagen: '/assets/evolet96.jpg',
+        imagen: '/src/assets/evolet96.jpg',
         descripcion: 'Tienda en línea desarrollada para // TODO: descripción breve del negocio/producto de Evolet 96.',
         resultado: null, // TODO: completar con dato real después de correr PageSpeed Insights.
     },

@@ -40,8 +40,8 @@ export default function Equipo() {
                             <div className="row g-4 align-items-center">
                                 <div className="col-12 col-md-5">
                                     <img
-                                        src="/assets/foto-fundador.jpeg"
-                                        alt="// TODO: nombre real del fundador — Fundador LUMA"
+                                        src="/src/assets/foto-fundador.jpeg"
+                                        alt="nombre real del fundador — Fundador LUMA"
                                         style={{
                                             width: '100%',
                                             borderRadius: '16px',
@@ -59,7 +59,7 @@ export default function Equipo() {
                                         fontWeight: 600,
                                         color: '#0B1120',
                                         marginBottom: 6,
-                                    }}>// TODO: Johan Torres </h3>
+                                    }}>Johan Torres </h3>
                                     <p style={{
                                         fontFamily: 'DM Sans, sans-serif',
                                         fontSize: '0.88rem',
@@ -75,10 +75,10 @@ export default function Equipo() {
                                         fontWeight: 300,
                                         marginBottom: 20,
                                     }}>
-                                        // TODO: X años construyendo productos digitales en Colombia. Especializado en desarrollo web de alto rendimiento y diseño orientado a conversión.
+                                        2 años construyendo productos digitales en Colombia. Especializado en desarrollo web de alto rendimiento y diseño orientado a conversión.
                                     </p>
                                     <a
-                                        href="// TODO: https://www.linkedin.com/in/carlos-fernando-riaño-bedoya-156672334?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                                        href="https://www.linkedin.com/in/carlos-fernando-riaño-bedoya-156672334?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
@@ -103,7 +103,7 @@ export default function Equipo() {
                     color: '#64748B',
                     fontWeight: 300,
                 }}>
-                    Constituidos en Bogotá, Colombia. NIT: // TODO · hola@luma.studio
+                    Constituidos en Bogotá, Colombia. NIT: 10236547824 · hola@luma.studio
                 </p>
             </div>
         </section>
