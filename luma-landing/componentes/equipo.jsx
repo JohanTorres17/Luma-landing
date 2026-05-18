@@ -1,9 +1,4 @@
-// Datos reales disponibles:
-// - Foto del fundador: /assets/foto-fundador.jpg  (el cliente la subirá)
-// - LinkedIn: // TODO: pegar URL de LinkedIn aquí
-// - Nombre completo: // TODO: nombre real del fundador
-// - Cargo: Fundador & Lead Developer
-// - NIT de la empresa: // TODO
+import fotoFundador from '../src/assets/foto-fundador.jpeg'
 
 export default function Equipo() {
     return (
@@ -40,8 +35,8 @@ export default function Equipo() {
                             <div className="row g-4 align-items-center">
                                 <div className="col-12 col-md-5">
                                     <img
-                                        src="/src/assets/foto-fundador.jpeg"
-                                        alt="nombre real del fundador — Fundador LUMA"
+                                        src={fotoFundador}
+                                        alt="Johan Torres — Fundador LUMA"
                                         style={{
                                             width: '100%',
                                             borderRadius: '16px',
@@ -103,7 +98,7 @@ export default function Equipo() {
                     color: '#64748B',
                     fontWeight: 300,
                 }}>
-                    Constituidos en Bogotá, Colombia. NIT: 10236547824 · hola@luma.studio
+                    Constituidos en Bogotá, Colombia · hola@luma.studio
                 </p>
             </div>
         </section>

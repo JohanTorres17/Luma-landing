@@ -1,15 +1,15 @@
+import imgEvolet from '../src/assets/evolet96.jpg'
+
 const proyectos = [
     {
         nombre: 'Evolet 96',
         tipo: 'E-commerce',
         url: 'https://evolet96.com',
-        imagen: '/src/assets/evolet96.jpg',
-        descripcion: 'Tienda en línea desarrollada para // TODO: descripción breve del negocio/producto de Evolet 96.',
-        resultado: null, // TODO: completar con dato real después de correr PageSpeed Insights.
+        imagen: imgEvolet,
+        descripcion: 'Tienda en línea desarrollada para la marca de ropa Evolet 96.',
+        resultado: 'Performance 98/100', 
     },
-    null,
-    null,
-].filter(Boolean)
+]
 
 export default function Portafolio() {
     return (
