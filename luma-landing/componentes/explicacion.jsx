@@ -50,7 +50,7 @@ export default function Explicacion() {
             <div className="container">
                 {/* Header */}
                 <div className="row justify-content-center mb-5">
-                    <div className="col-12 col-md-8 text-center">
+                        <div className="col-12 col-md-8 text-center">
                         <div className="section-label">CÓMO FUNCIONA</div>
                         <h2 className="section-title" style={{
                             fontSize: 'clamp(2rem, 4vw, 3rem)',
@@ -135,13 +135,13 @@ export default function Explicacion() {
                 {/* Services */}
                 <div className="row g-4 mt-3">
                     <div className="col-12 mb-2">
-                        <div className="text-center">
+                            <div className="text-center">
                             <div className="section-label" style={{ justifyContent: 'center' }}>SERVICIOS</div>
-                            <div style={{
+                            <h2 style={{
                                 fontFamily: 'Cormorant Garamond, serif',
                                 fontSize: '1.6rem', fontWeight: 600,
                                 color: '#0B1120',
-                            }}>Nuestros servicios</div>
+                            }}>Nuestros servicios</h2>
                         </div>
                     </div>
                     {servicios.map((s, i) => (

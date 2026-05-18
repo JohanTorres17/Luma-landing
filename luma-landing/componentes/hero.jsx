@@ -180,13 +180,13 @@ export default function Hero() {
                             marginBottom: '22px',
                             animation: 'fadeInUp 0.8s ease 0.1s both',
                         }}>
-                            Tu presencia digital,<br />
+                            Diseño y desarrollo web en Colombia<br />
                             <span style={{
                                 fontStyle: 'italic',
                                 background: 'var(--gradient-blue)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
-                            }}>diseñada para rendir.</span>
+                            }}>para convertir más visitas en clientes.</span>
                         </h1>
 
                         <p style={{
@@ -196,7 +196,7 @@ export default function Hero() {
                             maxWidth: 480, marginBottom: '36px',
                             animation: 'fadeInUp 0.8s ease 0.2s both',
                         }}>
-                            Construimos sitios web, landing pages y aplicaciones que combinan precisión técnica con diseño que convierte. Para emprendedores y negocios que quieren destacar.
+                            Construimos sitios web, landing pages y aplicaciones que combinan precisión técnica con diseño que convierte. Para emprendedores y negocios que quieren destacar en búsquedas, conversiones y confianza.
                         </p>
 
                         {/* Stats */}

@@ -151,16 +151,22 @@ export function Footer() {
                             letterSpacing: '0.15em', color: 'rgba(255,255,255,0.2)',
                             textTransform: 'uppercase', marginBottom: 18,
                         }}>Servicios</div>
-                        {['Sitios Web', 'Landing Pages', 'Aplicaciones Web', 'Consultoría Digital'].map(s => (
-                            <div key={s} style={{
+                        {[
+                            { label: 'Sitios Web', href: '#como-funciona' },
+                            { label: 'Landing Pages', href: '#beneficios' },
+                            { label: 'Aplicaciones Web', href: '#beneficios' },
+                            { label: 'FAQ', href: '#faq' },
+                        ].map(s => (
+                            <a key={s.label} href={s.href} style={{
+                                display: 'block',
                                 fontFamily: 'DM Sans, sans-serif',
                                 fontSize: '0.83rem', color: 'rgba(255,255,255,0.4)',
                                 marginBottom: 12, fontWeight: 300,
-                                transition: 'color 0.2s', cursor: 'default',
+                                transition: 'color 0.2s', textDecoration: 'none',
                             }}
-                                onMouseEnter={e => e.target.style.color = 'rgba(255,255,255,0.7)'}
-                                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.4)'}
-                            >{s}</div>
+                                onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+                                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+                            >{s.label}</a>
                         ))}
                     </div>
 
@@ -173,8 +179,8 @@ export function Footer() {
                         }}>Contacto</div>
                         {[
                             { label: 'Email', val: 'hola@luma.studio' },
-                            { label: 'WhatsApp', val: '+57 300 000 0000' },
-                            { label: 'Ubicación', val: 'Bogotá, Colombia' },
+                            { label: 'WhatsApp', val: '+57 318 341 4381', href: 'https://wa.me/573183414381' },
+                            { label: 'Ubicación', val: 'Cra 88 F #52 B 13 Sur, Bogotá, Colombia' },
                             { label: 'Horario', val: 'Lun–Vie · 8am–6pm' },
                         ].map(c => (
                             <div key={c.label} className="d-flex gap-2 mb-3" style={{ alignItems: 'baseline' }}>
@@ -184,12 +190,46 @@ export function Footer() {
                                     flexShrink: 0, letterSpacing: '0.05em',
                                     minWidth: 60,
                                 }}>{c.label}</span>
-                                <span style={{
-                                    fontFamily: 'DM Sans, sans-serif',
-                                    fontSize: '0.83rem', color: 'rgba(255,255,255,0.45)',
-                                    fontWeight: 300,
-                                }}>{c.val}</span>
+                                {c.href ? (
+                                    <a href={c.href} target="_blank" rel="noreferrer" style={{
+                                        fontFamily: 'DM Sans, sans-serif',
+                                        fontSize: '0.83rem', color: 'rgba(255,255,255,0.45)',
+                                        fontWeight: 300, textDecoration: 'none',
+                                    }}>{c.val}</a>
+                                ) : (
+                                    <span style={{
+                                        fontFamily: 'DM Sans, sans-serif',
+                                        fontSize: '0.83rem', color: 'rgba(255,255,255,0.45)',
+                                        fontWeight: 300,
+                                    }}>{c.val}</span>
+                                )}
                             </div>
+                        ))}
+                    </div>
+
+                    {/* Redes */}
+                    <div className="col-12 col-md-4">
+                        <div style={{
+                            fontFamily: 'DM Mono, monospace', fontSize: '0.62rem',
+                            letterSpacing: '0.15em', color: 'rgba(255,255,255,0.2)',
+                            textTransform: 'uppercase', marginBottom: 18,
+                        }}>Redes</div>
+                        {[
+                            { label: 'Facebook', href: 'https://www.facebook.com/share/1AmdxvEMXG/' },
+                            { label: 'Instagram', href: 'https://www.instagram.com/soy_carlos010/' },
+                            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/carlos-fernando-riaño-bedoya-156672334?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+                            { label: 'YouTube', href: 'https://youtube.com/@carlosfernandorianobedoya5532?si=PZsXZz1SDuqFmfU-' },
+                        ].map(social => (
+                            <a key={social.label} href={social.href} target="_blank" rel="noreferrer" style={{
+                                display: 'block',
+                                fontFamily: 'DM Sans, sans-serif',
+                                fontSize: '0.83rem', color: 'rgba(255,255,255,0.4)',
+                                marginBottom: 12, fontWeight: 300,
+                                transition: 'color 0.2s', textDecoration: 'none',
+                            }}
+                                onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+                                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+                            >{social.label}</a>
                         ))}
                     </div>
                 </div>
@@ -204,15 +244,19 @@ export function Footer() {
                         © 2025 LUMA Digital Studio. Todos los derechos reservados.
                     </div>
                     <div className="d-flex gap-4">
-                        {['Política de Privacidad', 'Términos de Uso'].map(l => (
-                            <a key={l} href="#" style={{
+                        {[
+                            { label: 'Política de Privacidad', href: '#inicio' },
+                            { label: 'Términos de Uso', href: '#inicio' },
+                            { label: 'Contacto', href: '#registro' },
+                        ].map(l => (
+                            <a key={l.label} href={l.href} style={{
                                 fontFamily: 'DM Sans, sans-serif',
                                 fontSize: '0.72rem', color: 'rgba(255,255,255,0.15)',
                                 textDecoration: 'none', transition: 'color 0.2s',
                             }}
-                                onMouseEnter={e => e.target.style.color = 'rgba(255,255,255,0.5)'}
-                                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.15)'}
-                            >{l}</a>
+                                onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+                                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.15)'}
+                            >{l.label}</a>
                         ))}
                     </div>
                 </div>

@@ -53,7 +53,7 @@ export default function Testimonios() {
             <div className="container">
                 {/* Header */}
                 <div className="row justify-content-center mb-5">
-                    <div className="col-12 col-md-8 text-center">
+                        <div className="col-12 col-md-8 text-center">
                         <div className="section-label">TESTIMONIOS</div>
                         <h2 className="section-title" style={{
                             fontSize: 'clamp(2rem, 4vw, 3rem)',

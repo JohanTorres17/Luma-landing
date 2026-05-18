@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luma.studio/sitemap.xml
+Sitemap: https://lumalanding.netlify.app/sitemap.xml

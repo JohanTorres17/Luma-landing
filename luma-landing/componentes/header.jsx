@@ -17,6 +17,7 @@ const LogoMark = ({ size = 28 }) => (
 )
 
 const navLinks = [
+    { label: 'Inicio', href: '#inicio' },
     { label: 'Beneficios', href: '#beneficios' },
     { label: 'Proceso', href: '#como-funciona' },
     { label: 'Testimonios', href: '#testimonios' },

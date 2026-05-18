@@ -52,7 +52,7 @@ export default function Beneficios() {
             <div className="container position-relative">
                 {/* Header */}
                 <div className="row justify-content-center mb-5">
-                    <div className="col-12 col-md-8 text-center">
+                        <div className="col-12 col-md-8 text-center">
                         <div className="section-label">BENEFICIOS</div>
                         <h2 className="section-title" style={{
                             fontSize: 'clamp(2rem, 4vw, 3rem)',
